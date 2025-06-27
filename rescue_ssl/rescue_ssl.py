@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Kubernetes API 서버 TLS 진단 스크립트
+TLS 진단 스크립트
   1) VIP(또는 LB)로 N회 연결해서 인증서 지문 통계 출력
-  2) 마스터 노드마다 SSH 접속 → apiserver.crt 지문·Issuer·SAN 출력
+  2) 노드마다 SSH 접속 → apiserver.crt 지문·Issuer·SAN 출력
   3) VIP에서 관측된 지문 ↔ 노드 매핑
 
 사용 예)
   python check_k8s_certs.py \
-      --vip 10.10.32.48 --port 10443 --sni kubernetes \
+      --vip x.x.x.x --port 443 --sni xxx \
       --masters master1,master2,master3 \
       --ssh-user ubuntu --ssh-key ~/.ssh/id_rsa \
       --samples 30
